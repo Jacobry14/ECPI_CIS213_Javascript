@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <!--
+        CIS213 Unit 5, Graded Exercise 2
+        Author: Jacob Ryan
+        Date: 1/21/2020
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title> Unit 5 Graded Exercise 2</title>
+</head>
+<body>
+	<header>
+		<h1>Jacob Ryan, Restaurant Calculator</h1>
+	</header>
+	<article>
+		<table>
+			<colgroup>
+				<col class="label" />
+				<col class="amount" />
+			</colgroup>
+			<tbody>
+				<tr>
+					<td><label>Bill Amount:</label></td>
+					<td><input type="number" id="billAmount" name="billAmount" /></td>
+				</tr>
+				<tr>
+					<td><label>Tip %:</label></td>
+					<td><input type="number" id="tip" name="tip" />&nbsp;(enter as a whole number)</td>
+				</tr>
+				<tr>
+					<td><label># of People:</label></td>
+					<td><input type="number" id="people" name="people" /></td>
+				</tr>
+				<tr>
+					<td><label>Tip amount:</label></td>
+					<td><label id="tipAmount"></label></td>
+				</tr>
+				<tr>
+					<td><label>Total Bill:</label></td>
+					<td><label id="totalBill"></label></td>
+				</tr>
+				<tr>
+					<td><label>Total per Person:</label></td>
+					<td><label id="totalPerPer"></label></td>
+				</tr>
+			</tbody>
+		</table>
+		<button type="submit" id="calculate" onclick="calcTotal()">Calculate</button>
+	</article>
+</body>
+<script>
+	function calcTotal()
+	{
+		var billAmount = document.getElementById("billAmount").value;
+		var tip = document.getElementById("tip").value * 0.01;
+		var numPeople = document.getElementById("people").value;
+		
+		var tipAmount = billAmount * tip;
+		var totalBill = parseInt(billAmount) + tipAmount;
+		var totalPerPer = totalBill / numPeople;
+		
+		document.getElementById("tipAmount").innerHTML = tipAmount.toFixed(2);
+		document.getElementById("totalBill").innerHTML = totalBill.toFixed(2);
+		document.getElementById("totalPerPer").innerHTML = totalPerPer.toFixed(2);
+	}
+</script>
+</html>
