@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<!--
+		CIS213 Unit 4, Graded Exercise 1
+		Author: Jacob Ryan
+		Date: 1/13/2020
+	-->
+	<meta charset="="utf-8" />
+	<meta id="viewport" content="width=device-width, initial-scale=1.0, maximum=scale=1.0,user-scalable=0">
+	<title>Unit 4, Graded Exercise 1</title>
+</head>
+<body>
+	<header>
+		<h1>Jacob Ryan, Graded Exercise 1</h1>
+	</header>
+	<article>
+		<label id="output">Jacob, this is your first visit</label>
+	</article>
+	<script>
+		function populateInfo()
+		{
+			var now = new Date();
+			var day = now.getDay();
+			var date = now.getDate();
+			var month = now.getMonth();
+			var year = now.getFullYear();
+			var timeStr = now.toTimeString();
+			var lastVisit;
+			
+			lastVisit = month + "/" + date + "/" + year + " at " + timeStr.substring(timeStr.indexOf("at") + 2, 8);
+			
+			document.cookie = "lastVisit=" + lastVisit;
+			document.getElementById("output").innerHTML = "Jacob, your last visit was " + lastVisit;
+		}
+		
+		if (window.addEventListener)
+		{
+			window.addEventListener("load", populateInfo, false);
+		)
+		else if (window.attachEvent)
+		{
+			window.attachEvent("onload", populateInfo);
+		}
+	</script>
+</body>
+</html>
